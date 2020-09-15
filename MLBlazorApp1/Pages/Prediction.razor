@@ -29,7 +29,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        Stream savedModel = await _client.GetStreamAsync("YOUR-MODEL");
+        Stream savedModel = await _client.GetStreamAsync("https://cors-anywhere.herokuapp.com/https://github.com/luisquintanilla/NET5RC1BlazorWASMMLTest/raw/master/MLBlazorApp1ML.Model/MLModel.zip");
         MLContext mlContext = new MLContext();
         ITransformer _model = mlContext.Model.Load(savedModel, out DataViewSchema schema);
         _predictionEngine = mlContext.Model.CreatePredictionEngine<ModelInput, ModelOutput>(_model);
